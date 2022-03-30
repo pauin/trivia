@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% from 'macros.html' import navbar %}
+
+{% block main %}
+  {{ navbar('/') }}
+    <br><br>
+      <div class="row text-center">
+        <div class="col-4 border offset-4 p-4 bg-success p-2 text-dark bg-opacity-10">
+          <a href="/play" class="btn btn-primary"> Play!</a><br>
+          Click the button above to start the trivia game
+        </div>
+      </div><br>
+
+      <div class="row offset-8">
+        <div class="col-2">
+          Search
+        </div>
+        <div class="col-2">
+          <input type="text" class="search">
+        </div>
+      </div><br><br>
+
+
+    <!-- tabla -->
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Score</th>
+          <th scope="col">Percentage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- {%for agendado in agendado%}
+          <tr>
+            <td>{{agendado[0]}}</td>
+            <td>{{agendado[1]}}</td>
+            <td name="usuario">{{agendado[2]}}</td>
+            <td>{{agendado[3]}}</td>
+            <td>{% if usuario == hospedador %}<button>eliminar</button>{% endif %}</td>
+          </tr> 
+        {% endfor %} -->
+      </tbody>
+    </table>
+
+{% endblock %}
+

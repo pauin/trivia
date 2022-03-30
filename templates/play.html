@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% from 'macros.html' import navbar %}
+
+{% block main %}
+{{ navbar('/') }}
+<br><br>
+<h4 class="">Hi {{usuario}}!</h4><br>
+<p>Choose an answer for each of the questions an submit the test once done. <br> Good Luck!</p>
+
+  <form method="post" action="/play">
+    <div class="row">
+      <div class="col-12">
+        <input type="hidden" value="{{usuario}}" name="usuario">
+        {%for question in objeto%}
+          <div class="border p-4">
+            <input type="hidden" name="pregunta">
+              {{question.question}}<br>
+            <div class="form-check 1">
+              <input class="form-check-input " type="radio" name="respuesta {{question.id}}" value="respuesta" >
+              <label class="form-check-label" for="flexRadioDefault1" name="respuesta1">
+                {{question.p1}}
+              </label>
+            </div>
+            <div class="form-check 2">
+              <input class="form-check-input " type="radio" name="respuesta {{question.id}}" value="respuesta">
+              <label class="form-check-label" for="flexRadioDefault2" name="respuesta2">
+                {{question.p2}}
+              </label>
+            </div>
+            <div class="form-check 3">
+              <input class="form-check-input " type="radio" name="respuesta {{question.id}}" value="respuesta">
+              <label class="form-check-label" for="flexRadioDefault3" name="respuesta3">
+                {{question.p3}}
+              </label>
+            </div>
+          </div><br>  
+        {% endfor %}
+      </div>
+    </div><br><br>
+    <div class="row " >
+      <div class="col-1 offset-8">
+        <a href="/" class="btn btn-primary offset-7"> Cancel </a>
+      </div>
+      <div class="col-3">
+        <!-- <a href="/" class="btn btn-primary offset-2"> Add Appointment </a> -->
+        <button class="btn btn-primary offset-2" type="submit">Submit</button>
+      </div>
+      
+    </div>
+
+  </form>
+    {% endblock %}
+

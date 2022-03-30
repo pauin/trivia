@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+{% from 'macros.html' import navbar %}
+
+{% block main %}
+{{ navbar('/') }}
+<br><br>
+<h2 class="">New Question</h2><br>
+
+  <form method="post" action="/question">
+    <!-- Pregunta -->
+    <div class="row">
+      <div class="col-3">
+        <div class="form-floating">
+          <p>Question</p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-floating">
+          <!-- <input class="form-control" id="floatingTextarea" style="height: 100px" name="" required> -->
+          <textarea name="preguntas" id="" cols="70%" rows="3"></textarea>
+      </div>
+    </div><br><br>
+    <!-- respuesta correcta -->
+    <div class="row">
+      <div class="col-3">
+          <p>Correct Answer</p>
+      </div>
+      <div class="col-6">
+        <input type="text" style="width: 100%" name="correcta">
+      </div>
+    </div><br><br>
+    <!-- pregunta incorrecta 1-->
+    <div class="row">
+      <div class="col-3">
+          <p>Fake Answer 1</p>
+      </div>
+      <div class="col-6">
+        <input type="text" style="width: 100%" name="incorrecta1">
+      </div>
+    </div><br><br>
+    <!-- pregunta incorrecta 2 -->
+    <div class="row">
+      <div class="col-3">
+          <p>Fake Answer 2 </p>
+      </div>
+      <div class="col-6">
+        <input type="text" style="width: 100%" name="incorrecta2">
+      </div>
+    </div><br><br>
+    <!-- botones -->
+    <div class="row " >
+      <div class="col-1 offset-8">
+        <a href="/" class="btn btn-primary offset-7"> Cancel </a>
+      </div>
+      <div class="col-3">
+        <!-- <a href="/" class="btn btn-primary offset-2"> Add Appointment </a> -->
+        <button class="btn btn-primary offset-2" type="submit">Submit</button>
+      </div>
+      
+    </div>
+
+  </form>
+    {% endblock %}
+
